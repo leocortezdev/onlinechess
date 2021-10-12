@@ -1,5 +1,7 @@
 import React from "react";
 
+
+
 import { useDrag, DragPreviewImage } from "react-dnd";
 
 const Piece = ({ piece: { type, color}, position }) => {
@@ -11,7 +13,8 @@ const Piece = ({ piece: { type, color}, position }) => {
     },
   });
 
-  const pieceImg = `./assets/${color}${type.toUpperCase()}.png`;
+  const pieceImg = require(`./assets/${color}${type.toUpperCase()}.png`).default;
+  console.log(pieceImg); 
 
   return (
     <>
