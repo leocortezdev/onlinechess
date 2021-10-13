@@ -14,7 +14,7 @@ const Piece = ({ piece: { type, color}, position }) => {
   });
 
   const pieceImg = require(`./assets/${color}${type.toUpperCase()}.png`).default;
-  console.log(pieceImg); 
+  //console.log(pieceImg); 
 
   return (
     <>

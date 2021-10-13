@@ -5,7 +5,7 @@ import Square from './Square';
 
 
 const Promote = ({promotion: {from, to, color}}) => {
-    console.log(color);
+    //console.log(color);
     return (
         <div className="board">
             {

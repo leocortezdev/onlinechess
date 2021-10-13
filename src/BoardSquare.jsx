@@ -12,7 +12,7 @@ const BoardSquare = ({piece , black, position}) => {
         accept: 'piece',
         drop: (item) => {
             const [fromPosition] = item.id.split('_');
-            console.log(fromPosition)
+            //console.log(fromPosition)
             handleMove(fromPosition, position);
         },
     });

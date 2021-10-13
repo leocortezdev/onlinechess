@@ -2,7 +2,6 @@ import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
 
-
 const firebaseConfig = {
   apiKey: "AIzaSyCapu90FUXvumvpm0iZSGP7kikd3tadm_8",
   authDomain: "onlinechessproj.firebaseapp.com",

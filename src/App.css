@@ -101,3 +101,14 @@
   justify-content: center;
   align-items: center;
 }
+
+.hover:hover{
+  color: rgb(122, 219, 219);
+}
+
+.share-game {
+  position: absolute;
+  width: 500px;
+  bottom: 0;
+  left: 0;
+}

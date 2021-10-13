@@ -24,8 +24,8 @@ const App = () => {
         <Route exact path="/">
           <Home></Home>
         </Route>
-        <Route>
-          <GameApp path="/game/:id"/>
+        <Route path="/game/:id">
+          <GameApp/>
         </Route>
       </Switch>
     </Router>
