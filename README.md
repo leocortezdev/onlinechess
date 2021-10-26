@@ -6,6 +6,8 @@
 * Firebase
 * React Dnd
 * React router dom
+* RxJS 
+* 
 
 ### Where to access and demo project?
 
