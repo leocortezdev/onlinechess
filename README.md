@@ -11,7 +11,7 @@
 
 ### Where to access and demo project?
 
-[Online Chess](https://www.https://onlinechessproj.web.app/)
+[Online Chess](https://onlinechessproj.web.app/)
 
 ### Inspiration
 
