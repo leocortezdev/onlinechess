@@ -18,7 +18,7 @@ const Board = ({ board, position }) => {
           <BoardSquare
             piece={piece}
             black={isBlack(item)}
-            position={getPosition(item)}
+            position={getPosition(item, position)}
           />
         </div>
       ))}
