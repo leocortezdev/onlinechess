@@ -6,11 +6,12 @@ import UserForm from "./UserForm";
 import GameApp from "./GameApp";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "./firebase";
+import Loading from "./Loading";
 
 const App = () => {
   const [user, loading, error] = useAuthState(auth);
   if (loading) {
-    return "loading";
+    return <Loading />;
   }
   if (error) {
     return "error";

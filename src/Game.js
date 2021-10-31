@@ -23,7 +23,7 @@ const updateGame = async (pendingPromotion, reset) => {
     if(reset) {
         updatedData.status = 'over';
     }
-    
+
     await gameRef.update(updatedData);
   } else {
     const newGame = {
@@ -136,7 +136,6 @@ export const initGame = async (gameRefFb) => {
 
 export const handleMove = (from, to) => {
   const promotions = chess.moves({ verbose: true }).filter((m) => m.promotion);
-  console.table(promotions);
   let pendingPromotion;
   if (promotions.some((p) => `${p.from}:${p.to}` === `${from}:${to}`)) {
     pendingPromotion = { from, to, color: promotions[0].color };
@@ -148,7 +147,7 @@ export const handleMove = (from, to) => {
   }
 };
 
-export const move = (from, to, promotion) => {
+export const move = async (from, to, promotion) => {
   let tempMove = { from, to };
 
   if (promotion) {
@@ -158,7 +157,7 @@ export const move = (from, to, promotion) => {
     if (member.piece === chess.turn()) {
       const legalMove = chess.move(tempMove);
       if (legalMove) {
-        updateGame();
+        await updateGame();
       }
     }
   } else {

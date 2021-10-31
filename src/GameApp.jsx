@@ -4,11 +4,13 @@ import { gameSubject, initGame, resetGame } from "./Game";
 import Board from "./Board";
 import { useParams, useHistory } from "react-router-dom";
 import { db } from "./firebase";
+import Loading from "./Loading";
 
 const GameApp = () => {
   const [board, setBoard] = useState([]);
   const [turn, setTurn] = useState();
   const [game, setGame] = useState({});
+  const [position, setPosition] = useState();
   const [isGameOver, setIsGameOver] = useState(null);
   const [result, setResult] = useState();
   const [initResult, setInitResult] = useState(null);
@@ -18,6 +20,7 @@ const GameApp = () => {
   const history = useHistory();
   //console.log(useParams());
   const shareLink = window.location.href;
+  console.log(position);
   useEffect(() => {
     let subscribe;
     //console.log(id);
@@ -33,6 +36,7 @@ const GameApp = () => {
           setResult(game.result);
           setStatus(game.status);
           setGame(game);
+          setPosition(game.position);
         });
       }
     };
@@ -42,7 +46,9 @@ const GameApp = () => {
   }, [id]);
 
   if (loading) {
-    return "Loading...";
+    return (
+      <Loading />
+    );
   }
 
   if (initResult === "Game Not Found") {
@@ -74,15 +80,15 @@ const GameApp = () => {
             className="top-text"
             style={{
               color: `${turn}`,
-              backgroundColor: `${turn === "w" ? "black" : "whitesmoke"}`,
+              backgroundColor: `${turn === "WHITE" ? "black" : "whitesmoke"}`,
             }}
           >
             {" "}
-            Current Turn: {turn}
+            Current Turn: {turn === undefined ? 'WHITE' : turn}
           </h2>
         )}
         {game.opponent && game.opponent.name && (<span className="tag is-link">{game.opponent.name}</span>)}
-        <Board board={board} />
+        <Board board={board} position={position}/>
         {game.member && game.member.name && (<span className="tag is-link">{game.member.name}</span>)}
       </div>
       {result && <p className="vertical-text">{result}</p>}

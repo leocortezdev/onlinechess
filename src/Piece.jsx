@@ -12,7 +12,7 @@ const Piece = ({ piece: { type, color}, position }) => {
       return { isDragging: !!monitor.isDragging() };
     },
   });
-
+  console.log(position);
   const pieceImg = require(`./assets/${color}${type.toUpperCase()}.png`).default;
   //console.log(pieceImg); 
 
